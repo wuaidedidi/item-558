@@ -3,8 +3,21 @@ server:
   port: ${SERVER_PORT:8000}
 
 spring:
-  profiles:
-    active: ${SPRING_PROFILES_ACTIVE:docker}
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://127.0.0.1:5432/examdb}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres123}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+logging:
+  level:
+    com.exam: INFO
+    org.springframework: WARN
 
 # JWT配置
 jwt:
