@@ -1,0 +1,18 @@
+# Docker环境配置
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres:5432/examdb}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres123}
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+
+# 生产环境禁用详细日志
+logging:
+  level:
+    com.exam: INFO
+    org.springframework: WARN
